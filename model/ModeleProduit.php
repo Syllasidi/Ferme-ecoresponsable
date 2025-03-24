@@ -1,5 +1,5 @@
 <?php
-// ModeleProduit.php
+
 require_once __DIR__ . '/../db/db_connect.php';
 
 class ModeleProduit{

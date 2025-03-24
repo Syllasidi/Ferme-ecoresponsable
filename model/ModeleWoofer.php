@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../db/db_connect.php';class ModeleWoofer {
+require_once __DIR__ . '/../db/db_connect.php';
+class ModeleWoofer {
     private $pdo;
 
     public function __construct($pdo) {
@@ -7,7 +8,7 @@ require_once __DIR__ . '/../db/db_connect.php';class ModeleWoofer {
     }
 
     public function obtenirTousLesWoofers() {
-        $sql = "SELECT u.id, u.nom, u.prenom, w.datearrivee, w.datedepart, w.tachesattribuees, w.photo
+        $sql = "SELECT u.id, u.nom, u.prenom, w.datearrivee, w.datedepart,  w.photo
                 FROM utilisateur u
                 JOIN woofer w ON u.id = w.id";
         $stmt = $this->pdo->query($sql);
@@ -15,7 +16,7 @@ require_once __DIR__ . '/../db/db_connect.php';class ModeleWoofer {
     }
 
     public function obtenirWooferParId($id) {
-        $sql = "SELECT u.id, u.nom, u.prenom, w.datearrivee, w.datedepart, w.photo, w.tachesattribuees
+        $sql = "SELECT u.id, u.nom, u.prenom, w.datearrivee, w.datedepart, w.photo
                 FROM utilisateur u
                 JOIN Woofer w ON u.id = w.id
                 WHERE u.id = ?";
@@ -24,11 +25,11 @@ require_once __DIR__ . '/../db/db_connect.php';class ModeleWoofer {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function ajouterWoofer($idUtilisateur, $dateArrivee, $dateDepart, $photo, $tachesAttribuees) {
-        $sql = "INSERT INTO Woofer (id, datearrivee, datedepart, photo, tachesattribuees)
-                VALUES (?, ?, ?, ?, ?)";
+    public function ajouterWoofer($idUtilisateur, $dateArrivee, $dateDepart, $photo) {
+        $sql = "INSERT INTO Woofer (id, datearrivee, datedepart, photo)
+                VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$idUtilisateur, $dateArrivee, $dateDepart, $photo, $tachesAttribuees]);
+        return $stmt->execute([$idUtilisateur, $dateArrivee, $dateDepart, $photo]);
     }
 }
 ?>
