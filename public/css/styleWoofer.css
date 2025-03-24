@@ -55,22 +55,22 @@ main { padding: 1rem; }
 }
 .woofer-profile h3 { margin: 0; color: #2a9d8f; }
 .woofer-profile p { margin: 0.2rem 0; }
-.tasks-table, .planning-table, .woofer-table {
+.tasks-table, .planning-table, .woofer-table, .table-inscription, .atelier-table {
   width: 100%;
   margin-top: 1rem;
   border-collapse: collapse;
 }
-.tasks-table th, .planning-table th, .woofer-table th {
+.tasks-table th, .planning-table th, .woofer-table th .table-inscription th, .atelier-table th {
   background-color: #2a9d8f;
   color: white;
   padding: 0.5rem;
   text-align: left;
 }
-.tasks-table td, .planning-table td, .woofer-table td {
+.tasks-table td, .planning-table td, .woofer-table td, .table-inscription td, .atelier-table td{
   padding: 0.5rem;
   border: 1px solid #ccc;
 }
-.tasks-table tr:nth-child(even), .planning-table tr:nth-child(even), .woofer-table tr:nth-child(even) {
+.tasks-table tr:nth-child(even), .planning-table tr:nth-child(even),.table-inscription tr:nth-child(even), .atelier-table tr:nth-child(even), .woofer-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 .actions {
