@@ -23,5 +23,10 @@ class Utilisateur {
   
         return  $user;
     }
+    public function getUtilisateursParRole($role) {
+         $sql = "SELECT * FROM utilisateur WHERE role = ?"; 
+         $stmt = $this->pdo->prepare($sql); 
+         $stmt->execute([$role]); 
+         return $stmt->fetchAll(PDO::FETCH_ASSOC); }
 }
 ?>
