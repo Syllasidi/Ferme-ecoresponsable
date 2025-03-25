@@ -34,11 +34,11 @@ $erreur = isset($_GET['erreur']);
   </header>
 
   <nav>
-    <a href="dashboard.php">Tableau de Bord</a>
-    <a href="stocks.php">Gestion des Stocks</a>
-    <a href="ventes.php">Gestion des Ventes</a>
-    <a href="ateliers.php">Gestion des Ateliers</a>
-    <a href="woofer.php">Gestion des Woofers</a>
+  <a href="woofer.php">Gestion des Ventes</a>
+        <a href="../../view/tableauDeBord/tableauDeBord.php">Tableau de Bord</a>
+        <a href="../../view/produit/produit.php">Gestion de stock</a>
+        <a href="../../view/Atelier/atelier.php">Gestion des Ateliers</a>
+        <a href="../../view/vente/vente.php">Gestion des Ventes</a>
   </nav>
 
   <main>

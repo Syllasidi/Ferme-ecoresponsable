@@ -27,8 +27,17 @@ $erreurStock = isset($_GET['erreur']) && $_GET['erreur'] === 'stock_insuffisant'
 
 <body>
 <header>
-  <h1>Ferme Écoresponsable</h1>
-</header>
+        <div class="logo">Ferme Écoresponsable</div>
+        <button class="logout-button">Déconnexion</button>
+    </header>
+  <nav>
+    <a href="produit.php">Gestion de stock</a>
+        <a href="../../view/tableauDeBord/tableauDeBord.php">Tableau de Bord</a>
+        <a href="../../view/vente/vente.php">Gestion des Ventes</a>
+        <a href="../../view/Atelier/atelier.php">Gestion des Ateliers</a>
+        <a href="../../view/woofer/woofer.php">Gestion des Woofers</a>
+    </nav>
+
 <div class="container">
 
   <h1>Gestion des Stocks</h1>

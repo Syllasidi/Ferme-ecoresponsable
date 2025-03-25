@@ -37,6 +37,18 @@ class ModeleStock {
         $stmt->execute([$idProduit]);
         return (int) $stmt->fetchColumn();
     }
-    
+     // Méthode pour récupérer les stocks
+     public function obtenirStocks() {
+        // Requête SQL pour récupérer les stocks
+        $sql = "SELECT p.nom, s.quantiteactuelle 
+                FROM produit p 
+                JOIN stock_produit sp ON p.id = sp.id_produit 
+                JOIN stock s ON sp.id_stock = s.id";
+        
+        // Exécuter la requête et retourner les résultats sous forme de tableau
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

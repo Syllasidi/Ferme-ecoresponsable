@@ -7,7 +7,25 @@ body {
     margin: 0;
     background-color: #eef2f3;
 }
-
+header .logout-button {
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #2a9d8f;
+    padding: 1rem;
+}
+nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;}
 /* En-tête et pied de page */
 header, footer {
     background-color: #2a9d8f;
@@ -72,7 +90,18 @@ main {
     font-weight: bold;
     
 }
-
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #2a9d8f;
+    padding: 1rem;
+}
+nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 .card button:hover {
     background-color: #21867a;
 }
