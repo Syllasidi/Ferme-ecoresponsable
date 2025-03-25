@@ -12,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $role = $_POST['role'];; 
 
         if ($utilisateurModel->creerUtilisateur($nom, $prenom, $email, $motDePasse, $role)) {
-            header("Location: connexion.php?success=1");
+            header("Location: ../../view/compte/connexion.php");
+            
             exit();
         } else {
             echo "Erreur lors de l'inscription.";
@@ -24,10 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $user = $utilisateurModel->getUtilisateurParEmail($email);
 
         if ($user && password_verify($motDePasse, $user['motdepasse'])){
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_role'] = $user['role'];
-            header("Location: dashboard.php");
+           
+            header("Location: ../../view/tableauDeBord/tableauDeBord.php");
             exit();
         } else {
             echo "Email ou mot de passe incorrect.";

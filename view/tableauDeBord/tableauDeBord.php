@@ -79,6 +79,7 @@ $totalVentes = array_sum(array_column($ventesRecentes, 'prixtotal'));
         <a href="../../view/vente/vente.php">Gestion des Ventes</a>
         <a href="../../view/Atelier/atelier.php">Gestion des Ateliers</a>
         <a href="../../view/woofer/woofer.php">Gestion des Woofers</a>
+        <a href="../../view/compte/creer_compte.php">Compte</a>
     </nav>
     <main>
         <!-- Début du Tableau de Bord -->
@@ -97,7 +98,7 @@ $totalVentes = array_sum(array_column($ventesRecentes, 'prixtotal'));
                     <h3>Ventes Récentes</h3>
                     <p>Total des ventes du jour: <?php echo $totalVentes; ?>€</p>
                     <?php foreach ($ventesRecentes as $vente): ?>
-                        <p><?php echo htmlspecialchars($vente['nom_produit']); ?>: <?php echo $vente['quantite']; ?>kg (<?php echo $vente['datevente']; ?>)</p>
+                        <p><?php echo htmlspecialchars($vente['nom_produit']); ?>: <?php echo $vente['quantite']; ?> quantité (<?php echo $vente['datevente']; ?>)</p>
                     <?php endforeach; ?>
                     <button>Voir toutes les ventes</button>
                 </div>

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $idProduit = $_POST['id_produit'] ?? null;
         $quantite = $_POST['quantite'] ?? 0;
         $type = $_POST['type'] ?? '';
-        $idUtilisateur = $_SESSION['user_id'] ?? 1;
+        $idUtilisateur = $_POST['id_utilisateur'] ?? 1;
     
         if ($idProduit && $quantite > 0 && in_array($type, ['entree', 'sortie'])) {
     

@@ -2,11 +2,14 @@
 require_once __DIR__ . '/../../db/db_connect.php';
 require_once __DIR__ . '/../../model/ModeleProduit.php';
 require_once __DIR__. '/../../model/ModeleMouvement.php'; 
+require_once __DIR__ . '/../../model/utilisateur.php';
 $mouvementModel = new ModeleMouvement($pdo); 
+$utilisateurModel = new Utilisateur($pdo);
 $derniersMouvements = $mouvementModel->getDerniersMouvementsParProduit();
 
 $produitModel = new ModeleProduit($pdo);
 $produits = $produitModel->obtenirTousAvecStock();
+$utilisateursWoofer = $utilisateurModel->getUtilisateursParRole('Woofer');
 
 if (!isset($produits) || !is_array($produits)) {
     $produits = [];
@@ -114,6 +117,7 @@ $erreurStock = isset($_GET['erreur']) && $_GET['erreur'] === 'stock_insuffisant'
       <label for="initialQty">Quantité initiale :</label>
       <input type="number" name="quantite" id="initialQty" required />
     </div>
+    
     <button type="submit" class="btn">Ajouter</button>
   </form>
 
@@ -140,6 +144,17 @@ $erreurStock = isset($_GET['erreur']) && $_GET['erreur'] === 'stock_insuffisant'
         <option value="entree">Entrée (ajout)</option>
         <option value="sortie">Sortie (retrait)</option>
       </select>
+    </div>
+    <div class="form-group">
+    <label>Woofer (utilisateur existant) :</label>
+        <select name="id_utilisateur" required>
+          <option value="">-- Choisir un woofer --</option>
+          <?php foreach ($utilisateursWoofer as $util): ?>
+            <option value="<?= $util['id'] ?>">
+              <?= htmlspecialchars($util['prenom'] . ' ' . $util['nom']) ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
     </div>
     <button type="submit" class="btn">Valider</button>
   </form>
